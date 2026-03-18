@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ТЁМНЫЙ МИР | Премиальный детейлинг в Барнауле</title>
+    <meta name="description" content="Премиальный детейлинг-центр в Барнауле. Полировка, химчистка, защитные покрытия, тонировка и стайлинг. Индивидуальный подход к каждому автомобилю.">
+    <meta name="theme-color" content="#0a0a0a">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        input, textarea, button {
+            -webkit-appearance: none;
+            border-radius: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+            -webkit-text-size-adjust: 100%;
+        }
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            padding-left: max(1.5rem, env(safe-area-inset-left));
+            padding-right: max(1.5rem, env(safe-area-inset-right));
+        }
+        .gold { color: #ffbd2f; }
+        .bg-gold { background: #ffbd2f; color: #0a0a0a; }
+        .border-gold { border-color: #ffbd2f; }
+        .text-glow { text-shadow: 0 0 10px rgba(255, 189, 47, 0.5); }
+
+        .section-title {
+            text-align: center;
+            padding-top: 3rem;
+            margin-bottom: 3rem;
+        }
+        .section-title .text {
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #ffbd2f;
+            text-shadow: 0 0 10px rgba(255, 189, 47, 0.5);
+        }
+        @media (min-width: 768px) {
+            .section-title { padding-top: 4rem; }
+        }
+
+        /* Hero секция — изображение поднято вверх и увеличено */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start; /* больше не центрируем по вертикали */
+            background: #0a0a0a;
+            padding: 2rem 0 0 0; /* увеличен отступ сверху */
+        }
+        .hero-flex {
+            display: flex;
+            align-items: flex-start; /* элементы прижаты к верху */
+            gap: 2rem;
+        }
+        .hero-text {
+            flex: 1 1 40%; /* текст занимает меньше места */
+            padding-top: 3rem; /* дополнительный отступ для визуального баланса */
+        }
+        .hero-image {
+            flex: 1 1 55%; /* изображению отдано больше места */
+            max-width: 900px; /* увеличено */
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 1rem;
+            overflow: hidden;
+            /* Маска для плавного перехода из темноты */
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%);
+            mask-image: linear-gradient(to right, transparent 0%, black 25%);
+        }
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* изображение полностью видимо */
+            display: block;
+        }
+        .promo-strip {
+            background: rgba(255, 189, 47, 0.15);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 189, 47, 0.3);
+            border-radius: 60px;
+            padding: 0.6rem 1.5rem;
+            margin-bottom: 2rem;
+            display: inline-block;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 189, 47, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .promo-strip i { color: #ffbd2f; margin-right: 0.5rem; }
+        .promo-strip strong { color: #ffbd2f; font-weight: 600; }
+
+        .hero-badge {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        .hero-badge-line {
+            height: 1px;
+            width: 4rem;
+            background: #ffbd2f;
+        }
+        .hero-badge-text {
+            font-size: 0.875rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #ffbd2f;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 0.9;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+        }
+        .hero-title span { color: #ffbd2f; }
+        .hero-subtitle {
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+        .hero-desc {
+            font-size: 1.125rem;
+            color: #ddd;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 9999px;
+            transition: all 0.3s;
+            text-decoration: none;
+            border: 2px solid transparent;
+            cursor: pointer;
+            min-height: 44px;
+        }
+        .btn-primary {
+            background: #ffbd2f;
+            color: #0a0a0a;
+            box-shadow: 0 5px 15px rgba(255, 189, 47, 0.3);
+        }
+        .btn-primary:hover { filter: brightness(1.1); transform: scale(1.02); }
+        .btn-outline {
+            border-color: #ffbd2f;
+            color: #fff;
+        }
+        .btn-outline:hover { background: rgba(255, 255, 255, 0.1); }
+
+        @media (min-width: 640px) {
+            .hero-buttons { flex-direction: row; }
+            .hero-title { font-size: 5rem; }
+        }
+        @media (min-width: 768px) {
+            .hero-title { font-size: 6rem; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-flex {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-image {
+                max-width: 600px; /* на мобильных тоже увеличен */
+                width: 100%;
+                margin-top: 2rem;
+            }
+            .hero-buttons {
+                justify-content: center;
+            }
+            .hero-badge {
+                justify-content: center;
+            }
+            .hero-text {
+                padding-top: 1rem;
+            }
+        }
+
+        .services { padding: 0 0 5rem 0; background: #0a0a0a; }
+        .services-grid { display: grid; gap: 1.5rem; }
+
+        .service-card {
+            position: relative;
+            overflow: hidden;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 0.5rem;
+            padding: 2.5rem 2rem 2rem 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            -webkit-tap-highlight-color: transparent;
+        }
+        .service-card:hover { transform: scale(1.02); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8); }
+        .service-card:active { transform: scale(1.02); box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8); }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.15) 50%, transparent 70%);
+            transition: left 0s; pointer-events: none;
+        }
+        .service-card:hover::before { left: 100%; transition: left 0.5s ease; }
+
+        .promo-card { border-color: #ffbd2f; box-shadow: 0 0 30px rgba(255, 189, 47, 0.3); position: relative; }
+        .promo-card:hover { border-color: #ffbd2f; box-shadow: 0 0 50px rgba(255, 189, 47, 0.5); }
+
+        .promo-badge {
+            position: absolute; top: 5px; left: 20px;
+            background: linear-gradient(135deg, #ffbd2f, #ff9100); color: #0a0a0a;
+            font-weight: 800; font-size: 0.9rem; padding: 0.5rem 1.5rem; border-radius: 30px;
+            transform: rotate(-5deg); box-shadow: 0 5px 15px rgba(0,0,0,0.3); z-index: 10;
+            text-transform: uppercase; letter-spacing: 1px; font-family: 'Montserrat', sans-serif;
+        }
+
+        .old-price { color: #aaa; text-decoration: line-through; font-size: 1.2rem; margin-right: 0.5rem; }
+        .current-price { color: #ffbd2f; font-size: 1.5rem; font-weight: 900; text-shadow: 0 0 15px rgba(255, 189, 47, 0.5); }
+
+        .service-icon { font-size: 2.5rem; color: #ffbd2f; margin-bottom: 1.5rem; }
+        .service-pill {
+            display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em;
+            padding: 0.25rem 0.75rem; margin-bottom: 1rem; border-radius: 9999px;
+            border: 1px solid #ffbd2f; color: #ffbd2f; background: rgba(255, 189, 47, 0.05);
+        }
+        .service-title { font-size: 1.25rem; font-weight: 900; text-transform: uppercase; margin-bottom: 0.75rem; }
+        .service-desc { font-size: 0.875rem; color: #aaa; margin-bottom: 1.5rem; }
+        .service-footer { display: flex; align-items: flex-end; justify-content: space-between; padding-top: 1rem; border-top: 1px solid #333; }
+        .service-price { font-size: 1.5rem; font-weight: 900; color: #ffbd2f; }
+        .service-time { font-size: 0.875rem; color: #888; }
+
+        @media (min-width: 768px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        .packages { padding: 0 0 5rem 0; background: #0a0a0a; }
+        .packages-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin-top: 2rem;
+        }
+        .package-card {
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 1rem;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+            border-color: #ffbd2f;
+        }
+        .package-name {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+            color: #ffbd2f;
+        }
+        .package-price {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #fff;
+            margin-bottom: 1.5rem;
+        }
+        .package-price small { font-size: 1rem; color: #aaa; }
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        .package-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #222;
+            color: #ccc;
+        }
+        .package-features li:last-child { border-bottom: none; }
+        .package-features i { color: #ffbd2f; margin-right: 0.5rem; }
+
+        .contact-section { padding: 0 0 5rem 0; background: #0a0a0a; }
+        .contact-card {
+            max-width: 800px; margin: 0 auto;
+            background: #111; border: 1px solid #333; border-radius: 1rem;
+            padding: 3rem 2.5rem;
+            text-align: center;
+        }
+        .contact-title {
+            font-size: 2rem; font-weight: 900; text-transform: uppercase;
+            margin-bottom: 1.5rem; line-height: 1.2;
+        }
+        .contact-title span { color: #ffbd2f; }
+        .contact-subtitle {
+            font-size: 1.1rem; color: #ddd;
+            max-width: 600px; margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+        .contact-phone {
+            font-size: 1.5rem; font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        .contact-phone a {
+            color: #ffbd2f;
+            text-decoration: none;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .contact-phone a:hover { border-bottom-color: #ffbd2f; }
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-telegram, .btn-max {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            padding: 0.875rem 2rem; font-size: 1rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border-radius: 9999px; border: none; min-height: 44px;
+            transition: all 0.3s; cursor: pointer; text-decoration: none;
+        }
+        .btn-telegram {
+            background: #0088cc; color: white;
+            box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3);
+        }
+        .btn-telegram:hover { filter: brightness(1.1); transform: scale(1.02); }
+        .btn-max {
+            background: #8B5CF6; color: white;
+            box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+        }
+        .btn-max:hover { filter: brightness(1.1); transform: scale(1.02); }
+
+        .gallery {
+            padding: 0 0 3rem 0;
+            background: #0f0f0f;
+            overflow: hidden;
+        }
+        .gallery .container { padding: 0; }
+        .gallery-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #ffbd2f #333;
+        }
+        .gallery-scroll::-webkit-scrollbar { height: 5px; }
+        .gallery-scroll::-webkit-scrollbar-track { background: #333; }
+        .gallery-scroll::-webkit-scrollbar-thumb { background: #ffbd2f; border-radius: 10px; }
+        .gallery-item {
+            flex: 0 0 auto;
+            width: 280px; height: 210px;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            border: 1px solid #444;
+            scroll-snap-align: start;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .gallery-item:hover { transform: scale(1.02); border-color: #ffbd2f; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        @media (max-width: 700px) { .gallery-item { width: 240px; height: 180px; } }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .lightbox.active { display: flex; }
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 90vh;
+            border-radius: 0.5rem;
+            border: 2px solid #ffbd2f;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 20px; right: 20px;
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-size: 2rem;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            border: 1px solid #ffbd2f;
+            z-index: 1001;
+        }
+        .lightbox-close:hover { background: #ffbd2f; color: black; }
+        .lightbox-prev, .lightbox-next {
+            position: absolute;
+            top: 50%; transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-size: 2rem;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            border: 1px solid #ffbd2f;
+            z-index: 1001;
+        }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        .lightbox-prev:hover, .lightbox-next:hover { background: #ffbd2f; color: black; }
+
+        .reviews {
+            padding: 0 0 5rem 0;
+            background: #0a0a0a;
+        }
+        .reviews-scroll {
+            display: flex;
+            overflow-x: auto;
+            gap: 1.5rem;
+            padding: 1rem 1.5rem;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: #ffbd2f #333;
+        }
+        .reviews-scroll::-webkit-scrollbar { height: 5px; }
+        .reviews-scroll::-webkit-scrollbar-track { background: #333; }
+        .reviews-scroll::-webkit-scrollbar-thumb { background: #ffbd2f; border-radius: 10px; }
+        .review-card {
+            flex: 0 0 auto;
+            width: 300px;
+            background: #111;
+            border: 1px solid #333;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            scroll-snap-align: start;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .review-card:hover { transform: translateY(-2px); border-color: #ffbd2f; }
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+        .review-avatar {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: #ffbd2f;
+            color: #0a0a0a;
+            display: flex;
+            align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 600;
+            border: 2px solid #ffbd2f;
+        }
+        .review-name { font-weight: 700; font-size: 1rem; color: #fff; }
+        .review-city { font-size: 0.85rem; color: #aaa; }
+        .review-stars { color: #ffbd2f; margin-bottom: 0.75rem; }
+        .review-text {
+            font-size: 0.9rem; color: #ddd;
+            line-height: 1.5; margin-bottom: 0.75rem;
+            font-style: italic;
+        }
+        .review-date { font-size: 0.8rem; color: #888; text-align: right; }
+        @media (max-width: 700px) { .review-card { width: 260px; } }
+
+        .map-section { padding: 0 0 5rem 0; background: #0a0a0a; }
+        .map-container {
+            max-width: 800px; margin: 0 auto;
+            border: 2px solid #333; border-radius: 0.5rem; overflow: hidden;
+        }
+        .dg-widget-link {
+            margin-bottom: 0.5rem; color: #ffbd2f;
+            text-decoration: none; font-size: 0.875rem; text-align: center;
+            display: block;
+        }
+        .dg-widget-link:hover { text-decoration: underline; }
+
+        .footer { padding: 3rem 0; border-top: 1px solid #333; background: #0a0a0a; }
+        .footer-content { display: flex; flex-direction: column; gap: 2rem; }
+        .footer-info { display: flex; flex-direction: column; gap: 1rem; }
+        .footer-logo { font-size: 1.5rem; font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
+        .footer-logo span { color: #ffbd2f; }
+        .footer-info-item { display: flex; align-items: center; gap: 0.5rem; color: #888; font-size: 0.875rem; }
+        .footer-info-item a { color: #ffbd2f; text-decoration: none; }
+        .footer-info-item a:hover { opacity: 0.8; }
+        .footer-nav { display: flex; flex-direction: column; gap: 0.75rem; }
+        .footer-nav a { color: #ccc; text-decoration: none; font-size: 0.875rem; transition: color 0.3s; }
+        .footer-nav a:hover { color: #ffbd2f; }
+        .footer-copyright { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid #333; text-align: center; color: #888; font-size: 0.875rem; }
+        @media (min-width: 768px) {
+            .footer-content { flex-direction: row; justify-content: space-between; }
+            .footer-nav { text-align: right; }
+        }
+        @media (max-width: 380px) {
+            .hero-title { font-size: 3.2rem; }
+            .service-card { padding: 2rem 1.5rem; }
+            .btn, .btn-telegram, .btn-max { padding: 0.75rem 1rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-flex">
+            <div class="hero-text">
+                <div class="promo-strip">
+                    <i class="fas fa-fire"></i> <strong>СЕЗОННАЯ АКЦИЯ:</strong> Антидождь в подарок при записи на полировку до конца недели!
+                </div>
+                <div class="hero-badge">
+                    <div class="hero-badge-line"></div>
+                    <span class="hero-badge-text">ДЕТЕЙЛИНГ · БАРНАУЛ</span>
+                </div>
+                <h1 class="hero-title">ТЁМНЫЙ<br><span>МИР</span></h1>
+                <p class="hero-subtitle">ПРЕМИАЛЬНЫЙ ДЕТЕЙЛИНГ</p>
+                <p class="hero-desc">Возвращаем автомобилю глубину цвета, защищаем кузов от агрессивной среды и создаём эффект шоу-кара на каждый день.</p>
+                <div class="hero-buttons">
+                    <a href="#services" class="btn btn-primary"><span>↗</span> Услуги</a>
+                    <a href="#contact" class="btn btn-outline"><span>↓</span> Связаться</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- Путь к изображению: PNG с заглавным расширением -->
+                <img src="images/images-0.PNG" alt="Премиальный автомобиль после детейлинга">
+            </div>
+        </div>
+    </section>
+
+    <!-- Услуги -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title"><span class="text">НАШИ УСЛУГИ</span></div>
+            <div class="services-grid">
+                <div class="service-card" data-service="Предпродажная подготовка">
+                    <div class="service-icon"><i class="fas fa-gem"></i></div>
+                    <div class="service-pill">ПРЕДПРОДАЖА</div>
+                    <h3 class="service-title">Предпродажная подготовка</h3>
+                    <p class="service-desc">Полный комплекс работ перед продажей: мойка, химчистка, полировка кузова, устранение дефектов.</p>
+                    <div class="service-footer"><span class="service-price">от 5 000 ₽</span><span class="service-time">1 день</span></div>
+                </div>
+                <div class="service-card promo-card" data-service="Многоэтапная полировка">
+                    <div class="promo-badge">ВЫГОДА 10%</div>
+                    <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+                    <div class="service-pill">ПОЛИРОВКА</div>
+                    <h3 class="service-title">Многоэтапная полировка</h3>
+                    <p class="service-desc">Удаляем паутинку и мелкие царапины, выравниваем лак, раскрываем глубину цвета.</p>
+                    <div class="service-footer"><div><span class="old-price">от 10 000 ₽</span><span class="current-price">от 9 000 ₽</span></div><span class="service-time">1-2 дня</span></div>
+                </div>
+                <div class="service-card promo-card" data-service="Полная химчистка салона">
+                    <div class="promo-badge">ВЫГОДА 10%</div>
+                    <div class="service-icon"><i class="fas fa-wind"></i></div>
+                    <div class="service-pill">ХИМЧИСТКА</div>
+                    <h3 class="service-title">Полная химчистка салона</h3>
+                    <p class="service-desc">Глубокая очистка тканей, кожи и пластика, удаление въевшихся запахов и пятен.</p>
+                    <div class="service-footer"><div><span class="old-price">от 6 000 ₽</span><span class="current-price">от 5 400 ₽</span></div><span class="service-time">6-10 ч</span></div>
+                </div>
+                <div class="service-card" data-service="Тонировка стёкол">
+                    <div class="service-icon"><i class="fas fa-sun"></i></div>
+                    <div class="service-pill">ТОНИРОВКА</div>
+                    <h3 class="service-title">Тонировка стёкол</h3>
+                    <p class="service-desc">Подбираем плёнку под ваш стиль. Тонировка по кругу, задняя полусфера, лобовое по допускам.</p>
+                    <div class="service-footer"><span class="service-price">от 3 000 ₽</span><span class="service-time">1-4 ч</span></div>
+                </div>
+                <div class="service-card" data-service="Бронеплёнка">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <div class="service-pill">ЗАЩИТА</div>
+                    <h3 class="service-title">Бронеплёнка</h3>
+                    <p class="service-desc">Защита ЛКП от сколов, царапин и агрессивной среды. Прозрачная или матовая плёнка.</p>
+                    <div class="service-footer"><span class="service-price">от 1 000 ₽</span><span class="service-time">от 2 ч</span></div>
+                </div>
+                <div class="service-card" data-service="Антихром">
+                    <div class="service-icon"><i class="fas fa-brush"></i></div>
+                    <div class="service-pill">СТАЙЛИНГ</div>
+                    <h3 class="service-title">Антихром</h3>
+                    <p class="service-desc">Перекраска или оклейка хромированных элементов в чёрный, серый или любой другой оттенок.</p>
+                    <div class="service-footer"><span class="service-price">от 1 000 ₽</span><span class="service-time">1 ч</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Пакетные предложения -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <div class="section-title"><span class="text">ПАКЕТНЫЕ ПРЕДЛОЖЕНИЯ</span></div>
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-name">Базовый</div>
+                    <div class="package-price">от 7 900 ₽ <small>/комплекс</small></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Мойка + чернение резины</li>
+                        <li><i class="fas fa-check"></i> Защитный воск</li>
+                        <li><i class="fas fa-check"></i> Химчистка салона (лёгкая)</li>
+                        <li><i class="fas fa-check"></i> Полировка фар</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="display:block; text-align:center;">Связаться</a>
+                </div>
+                <div class="package-card">
+                    <div class="package-name">Premium</div>
+                    <div class="package-price">от 15 900 ₽ <small>/комплекс</small></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Всё из Базового</li>
+                        <li><i class="fas fa-check"></i> Полная химчистка салона</li>
+                        <li><i class="fas fa-check"></i> Многоэтапная полировка кузова</li>
+                        <li><i class="fas fa-check"></i> Керамическое покрытие на 1 год</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="display:block; text-align:center;">Связаться</a>
+                </div>
+                <div class="package-card">
+                    <div class="package-name">Ультиматум</div>
+                    <div class="package-price">от 29 900 ₽ <small>/комплекс</small></div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Всё из Premium</li>
+                        <li><i class="fas fa-check"></i> Бронеплёнка (зоны риска)</li>
+                        <li><i class="fas fa-check"></i> Тонировка (задняя полусфера)</li>
+                        <li><i class="fas fa-check"></i> Антидождь + защита салона</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary" style="display:block; text-align:center;">Связаться</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Портфолио (ваши фотографии) -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-title"><span class="text">ПОРТФОЛИО</span></div>
+        </div>
+        <div class="gallery-scroll" id="galleryScroll">
+            <div class="gallery-item"><img src="images/images-1.jpg" alt="Работа 1" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/images-2.jpg" alt="Работа 2" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/images-3.jpg" alt="Работа 3" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/images-4.PNG" alt="Работа 4" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/images-5.jpg" alt="Работа 5" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/images-6.jpg" alt="Работа 6" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/images-7.PNG" alt="Работа 7" loading="lazy"></div>
+        </div>
+    </section>
+
+    <!-- Отзывы -->
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <div class="section-title"><span class="text">ОТЗЫВЫ</span></div>
+        </div>
+        <div class="reviews-scroll">
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">А</div>
+                    <div>
+                        <div class="review-name">Алексей</div>
+                        <div class="review-city">Барнаул</div>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">«Отличная полировка, машина блестит как новая. Очень доволен качеством!»</div>
+                <div class="review-date">12.03.2025</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">Е</div>
+                    <div>
+                        <div class="review-name">Елена</div>
+                        <div class="review-city">Барнаул</div>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">«Делала химчистку салона – убрали все пятна и запах. Теперь в машине приятно находиться. Спасибо!»</div>
+                <div class="review-date">05.03.2025</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">Д</div>
+                    <div>
+                        <div class="review-name">Дмитрий</div>
+                        <div class="review-city">Барнаул</div>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">«Защитная плёнка – супер! Уже спасла от сколов на трассе. Рекомендую.»</div>
+                <div class="review-date">20.02.2025</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">С</div>
+                    <div>
+                        <div class="review-name">Сергей</div>
+                        <div class="review-city">Барнаул</div>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★☆</div>
+                <div class="review-text">«Тонировку сделали быстро и аккуратно. Очень хорошо, только немного долго ждал записи.»</div>
+                <div class="review-date">14.02.2025</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">О</div>
+                    <div>
+                        <div class="review-name">Ольга</div>
+                        <div class="review-city">Барнаул</div>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">«Полировка фар сделала видимость отличной, очень помогли перед продажей авто. Спасибо!»</div>
+                <div class="review-date">01.02.2025</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">И</div>
+                    <div>
+                        <div class="review-name">Иван</div>
+                        <div class="review-city">Барнаул</div>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">«Керамическое покрытие – огонь! Машину мою реже, и блеск невероятный.»</div>
+                <div class="review-date">25.01.2025</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">Т</div>
+                    <div>
+                        <div class="review-name">Татьяна</div>
+                        <div class="review-city">Барнаул</div>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">«Антихром сделали идеально, теперь авто выглядит стильно и современно. Спасибо за работу!»</div>
+                <div class="review-date">10.01.2025</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">М</div>
+                    <div>
+                        <div class="review-name">Максим</div>
+                        <div class="review-city">Барнаул</div>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">«Предпродажная подготовка – машину продал за три дня. Ребята, вы лучшие!»</div>
+                <div class="review-date">05.01.2025</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">К</div>
+                    <div>
+                        <div class="review-name">Константин</div>
+                        <div class="review-city">Барнаул</div>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">«Большое спасибо за качественную работу! Всё сделано чётко, как договаривались.»</div>
+                <div class="review-date">22.12.2024</div>
+            </div>
+            <div class="review-card">
+                <div class="review-header">
+                    <div class="review-avatar">Н</div>
+                    <div>
+                        <div class="review-name">Николай</div>
+                        <div class="review-city">Барнаул</div>
+                    </div>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <div class="review-text">«Очень доволен обслуживанием. Цены адекватные, результат отличный. Буду советовать друзьям.»</div>
+                <div class="review-date">15.12.2024</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Контактный блок -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-card">
+                <h2 class="contact-title"><span>СВЯЖИТЕСЬ С НАМИ</span></h2>
+                <p class="contact-subtitle">Преобразите свой автомобиль! Свяжитесь с нами для индивидуального расчёта. Наша команда готова обеспечить идеальный результат.</p>
+                <div class="contact-phone">
+                    <a href="tel:+79612380502">+7 (961) 238‑05‑02</a>
+                </div>
+                <div class="contact-buttons">
+                    <a href="https://t.me/+79612380502" class="btn-telegram" target="_blank" rel="noopener"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                    <a href="https://max.ru/u/f9LHodD0cOLNglhx4zGF78iTQeZhniR3l119jEWjNqxM7QFplvYrwZI3hT4" class="btn-max" target="_blank" rel="noopener"><i class="fas fa-comment-dots"></i> Макс</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Карта -->
+    <section id="map" class="map-section">
+        <div class="container">
+            <div class="section-title"><span class="text">КАК НАС НАЙТИ</span></div>
+            <div class="map-container">
+                <a class="dg-widget-link" href="http://2gis.ru/barnaul/profiles/70000001109666105,563478234443148/center/83.79259371809896,53.33758334182757/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap" target="_blank" rel="noopener">Посмотреть на карте Барнаула</a>
+                <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>
+                <script charset="utf-8">
+                    new DGWidgetLoader({
+                        "width": "100%",
+                        "height": 400,
+                        "borderColor": "#a3a3a3",
+                        "pos": {"lat":53.33758334182757,"lon":83.79259371809896,"zoom":17},
+                        "opt": {"city":"barnaul"},
+                        "org": [{"id":"70000001109666105"},{"id":"563478234443148"}]
+                    });
+                </script>
+                <noscript style="color:#c00; font-size:16px; font-weight:bold; text-align:center;">Виджет карты использует JavaScript. Включите его в настройках вашего браузера.</noscript>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-logo">ТЁМНЫЙ МИР <span>•</span> ДЕТЕЙЛИНГ</div>
+                    <div class="footer-info-item"><span>📍</span> г. Барнаул, ул. Максима Горького, 39а</div>
+                    <div class="footer-info-item"><span>📞</span> <a href="tel:+79612380502">+7 (961) 238‑05‑02</a></div>
+                </div>
+                <nav class="footer-nav">
+                    <a href="#services">Услуги</a>
+                    <a href="#packages">Пакеты</a>
+                    <a href="#gallery">Портфолио</a>
+                    <a href="#reviews">Отзывы</a>
+                    <a href="#contact">Связаться</a>
+                </nav>
+            </div>
+            <div class="footer-copyright">© 2026 ТЁМНЫЙ МИР. Премиальный уход за авто.</div>
+        </div>
+    </footer>
+
+    <!-- Лайтбокс -->
+    <div class="lightbox" id="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <span class="lightbox-prev">&#10094;</span>
+        <span class="lightbox-next">&#10095;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // Лайтбокс для галереи
+            const galleryItems = document.querySelectorAll('.gallery-item img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const closeBtn = document.querySelector('.lightbox-close');
+            const prevBtn = document.querySelector('.lightbox-prev');
+            const nextBtn = document.querySelector('.lightbox-next');
+            let currentIndex = 0;
+
+            if (galleryItems.length > 0) {
+                galleryItems.forEach((img, index) => {
+                    img.parentElement.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        currentIndex = index;
+                        updateLightbox(index);
+                        lightbox.classList.add('active');
+                    });
+                });
+            }
+
+            function updateLightbox(index) {
+                if (galleryItems[index]) {
+                    lightboxImg.src = galleryItems[index].src;
+                }
+            }
+
+            closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+                updateLightbox(currentIndex);
+            });
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % galleryItems.length;
+                updateLightbox(currentIndex);
+            });
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) lightbox.classList.remove('active');
+            });
+            document.addEventListener('keydown', (e) => {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') lightbox.classList.remove('active');
+                if (e.key === 'ArrowLeft') prevBtn.click();
+                if (e.key === 'ArrowRight') nextBtn.click();
+            });
+        })();
+    </script>
+</body>
+</html>
