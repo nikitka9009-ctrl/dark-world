@@ -61,37 +61,22 @@
             .section-title { padding-top: 4rem; }
         }
 
-        /* Hero секция — изображение как фон */
+        /* Hero секция — чистый чёрный фон, всё по центру */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            background: #0a0a0a; /* запасной цвет */
-            position: relative;
-            background-image: url('images/images-0.PNG');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 4rem 0;
-        }
-        /* Тёмный градиентный оверлей для читаемости текста */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.4) 50%, transparent 80%);
-            pointer-events: none; /* чтобы не мешать кликам */
+            justify-content: center;
+            background: #0a0a0a;
+            text-align: center;
+            padding: 2rem 0;
         }
         .hero .container {
-            position: relative;
-            z-index: 2;
             width: 100%;
         }
         .hero-content {
-            max-width: 700px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         .promo-strip {
             background: rgba(255, 189, 47, 0.15);
@@ -115,6 +100,7 @@
         .hero-badge {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 1rem;
             margin-bottom: 2rem;
         }
@@ -152,12 +138,13 @@
             font-size: 1.125rem;
             color: #ddd;
             max-width: 600px;
-            margin-bottom: 2.5rem;
+            margin: 0 auto 2.5rem auto;
         }
         .hero-buttons {
             display: flex;
             flex-direction: column;
             gap: 1rem;
+            justify-content: center;
         }
 
         .btn {
@@ -197,30 +184,7 @@
             .hero-title { font-size: 6rem; }
         }
 
-        @media (max-width: 768px) {
-            .hero {
-                align-items: flex-end; /* на мобильных текст внизу для лучшей читаемости */
-                padding-bottom: 4rem;
-            }
-            .hero::before {
-                background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.6) 50%, transparent 80%);
-            }
-            .hero-buttons {
-                justify-content: center;
-            }
-            .hero-badge {
-                justify-content: center;
-            }
-            .hero-content {
-                text-align: center;
-                max-width: 100%;
-            }
-            .hero-desc {
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-
+        /* Ниже — все остальные стили без изменений */
         .services { padding: 0 0 5rem 0; background: #0a0a0a; }
         .services-grid { display: grid; gap: 1.5rem; }
 
@@ -547,7 +511,7 @@
     </style>
 </head>
 <body>
-    <!-- Hero с фоновым изображением -->
+    <!-- Hero — чистый чёрный фон, всё по центру -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -881,7 +845,6 @@
 
     <script>
         (function() {
-            // Лайтбокс для галереи
             const galleryItems = document.querySelectorAll('.gallery-item img');
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');
