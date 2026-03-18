@@ -61,39 +61,37 @@
             .section-title { padding-top: 4rem; }
         }
 
-        /* Hero секция — изображение поднято вверх и увеличено */
+        /* Hero секция — изображение как фон */
         .hero {
             min-height: 100vh;
             display: flex;
-            align-items: flex-start; /* больше не центрируем по вертикали */
-            background: #0a0a0a;
-            padding: 2rem 0 0 0; /* увеличен отступ сверху */
+            align-items: center;
+            background: #0a0a0a; /* запасной цвет */
+            position: relative;
+            background-image: url('images/images-0.PNG');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 4rem 0;
         }
-        .hero-flex {
-            display: flex;
-            align-items: flex-start; /* элементы прижаты к верху */
-            gap: 2rem;
-        }
-        .hero-text {
-            flex: 1 1 40%; /* текст занимает меньше места */
-            padding-top: 3rem; /* дополнительный отступ для визуального баланса */
-        }
-        .hero-image {
-            flex: 1 1 55%; /* изображению отдано больше места */
-            max-width: 900px; /* увеличено */
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            border-radius: 1rem;
-            overflow: hidden;
-            /* Маска для плавного перехода из темноты */
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%);
-            mask-image: linear-gradient(to right, transparent 0%, black 25%);
-        }
-        .hero-image img {
+        /* Тёмный градиентный оверлей для читаемости текста */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain; /* изображение полностью видимо */
-            display: block;
+            background: linear-gradient(to right, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.4) 50%, transparent 80%);
+            pointer-events: none; /* чтобы не мешать кликам */
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+        .hero-content {
+            max-width: 700px;
         }
         .promo-strip {
             background: rgba(255, 189, 47, 0.15);
@@ -200,14 +198,12 @@
         }
 
         @media (max-width: 768px) {
-            .hero-flex {
-                flex-direction: column;
-                text-align: center;
+            .hero {
+                align-items: flex-end; /* на мобильных текст внизу для лучшей читаемости */
+                padding-bottom: 4rem;
             }
-            .hero-image {
-                max-width: 600px; /* на мобильных тоже увеличен */
-                width: 100%;
-                margin-top: 2rem;
+            .hero::before {
+                background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.6) 50%, transparent 80%);
             }
             .hero-buttons {
                 justify-content: center;
@@ -215,8 +211,13 @@
             .hero-badge {
                 justify-content: center;
             }
-            .hero-text {
-                padding-top: 1rem;
+            .hero-content {
+                text-align: center;
+                max-width: 100%;
+            }
+            .hero-desc {
+                margin-left: auto;
+                margin-right: auto;
             }
         }
 
@@ -546,10 +547,10 @@
     </style>
 </head>
 <body>
-    <!-- Hero -->
+    <!-- Hero с фоновым изображением -->
     <section class="hero">
-        <div class="container hero-flex">
-            <div class="hero-text">
+        <div class="container">
+            <div class="hero-content">
                 <div class="promo-strip">
                     <i class="fas fa-fire"></i> <strong>СЕЗОННАЯ АКЦИЯ:</strong> Антидождь в подарок при записи на полировку до конца недели!
                 </div>
@@ -564,10 +565,6 @@
                     <a href="#services" class="btn btn-primary"><span>↗</span> Услуги</a>
                     <a href="#contact" class="btn btn-outline"><span>↓</span> Связаться</a>
                 </div>
-            </div>
-            <div class="hero-image">
-                <!-- Путь к изображению: PNG с заглавным расширением -->
-                <img src="images/images-0.PNG" alt="Премиальный автомобиль после детейлинга">
             </div>
         </div>
     </section>
